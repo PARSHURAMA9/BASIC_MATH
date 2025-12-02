@@ -1,0 +1,353 @@
+/* Reset & Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #3b82f6;
+    --primary-purple: #8b5cf6;
+    --primary-pink: #ec4899;
+    --primary-green: #10b981;
+    --primary-orange: #f59e0b;
+    --primary-red: #ef4444;
+    --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    --gradient-nav: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    --radius: 16px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+/* Navigation */
+.navbar {
+    background: var(--gradient-nav);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-brand h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    backdrop-filter: blur(10px);
+    transform: translateY(-1px);
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+    border-radius: var(--radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow);
+}
+
+.hero h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: var(--gradient-nav);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.025em;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Operations Grid */
+.operations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.operation-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.operation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--gradient-1);
+}
+
+.operation-card:nth-child(1)::before { background: var(--gradient-1); }
+.operation-card:nth-child(2)::before { background: var(--gradient-2); }
+.operation-card:nth-child(3)::before { background: var(--gradient-3); }
+.operation-card:nth-child(4)::before { background: var(--gradient-4); }
+
+.operation-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-icon {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    display: inline-block;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    /* Solid colors for better visibility */
+    color: var(--primary-blue);
+}
+
+.operation-card:nth-child(1) .card-icon { 
+    color: #667eea; /* Solid purple-blue */
+    font-size: 5.5rem;
+}
+.operation-card:nth-child(2) .card-icon { 
+    color: #f5576c; /* Solid pink-red */
+    font-size: 5.5rem;
+}
+.operation-card:nth-child(3) .card-icon { 
+    color: #4facfe; /* Solid blue */
+    font-size: 5rem;
+}
+.operation-card:nth-child(4) .card-icon { 
+    color: #43e97b; /* Solid green */
+    font-size: 5rem;
+}
+
+.operation-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.operation-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: var(--gradient-1);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    position: relative;
+    overflow: hidden;
+}
+
+.operation-card:nth-child(1) .btn { background: var(--gradient-1); }
+.operation-card:nth-child(2) .btn { background: var(--gradient-2); }
+.operation-card:nth-child(3) .btn { background: var(--gradient-3); }
+.operation-card:nth-child(4) .btn { background: var(--gradient-4); }
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Footer */
+footer {
+    background: var(--gradient-nav);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple), var(--primary-pink));
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.operation-card {
+    animation: float 6s ease-in-out infinite;
+}
+
+.operation-card:nth-child(1) { animation-delay: 0s; }
+.operation-card:nth-child(2) { animation-delay: 1.5s; }
+.operation-card:nth-child(3) { animation-delay: 3s; }
+.operation-card:nth-child(4) { animation-delay: 4.5s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-links a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .container {
+        padding: 2rem 1rem;
+    }
+    
+    .hero {
+        padding: 2rem 1rem;
+    }
+    
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    .operations-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .operation-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .operation-card:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+    
+    /* Adjust icon sizes for mobile */
+    .card-icon {
+        font-size: 4rem !important;
+    }
+    
+    .operation-card:nth-child(1) .card-icon,
+    .operation-card:nth-child(2) .card-icon {
+        font-size: 4.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .nav-brand h1 {
+        font-size: 1.25rem;
+    }
+    
+    .card-icon {
+        font-size: 3.5rem !important;
+    }
+    
+    .operation-card:nth-child(1) .card-icon,
+    .operation-card:nth-child(2) .card-icon {
+        font-size: 4rem !important;
+    }
+}
