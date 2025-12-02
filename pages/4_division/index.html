@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Division Worksheet Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Required Libraries (Internet Connection Needed) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- MathJax v3 Library -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Division Worksheet Generator</h1>
+        
+        <div class="controls">
+            <fieldset>
+                <legend>Type of Division</legend>
+                <label><input type="radio" name="problemType" value="zero" checked> 0 Remainder</label>
+                <label><input type="radio" name="problemType" value="mixed"> Mixed Number Answer</label>
+                <label><input type="radio" name="problemType" value="decimal"> Decimal Answer</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Randomization</legend>
+                <label><input type="radio" name="randomization" value="1" checked> Level 1 (Sequential Denominator)</label>
+                <label><input type="radio" name="randomization" value="2"> Level 2 (Random Numerator)</label>
+                <label><input type="radio" name="randomization" value="3"> Level 3 (Fully Random)</label>
+            </fieldset>
+
+            <div id="zero-remainder-inputs">
+                <fieldset>
+                    <legend>Denominator Range</legend>
+                    <label for="den-zero-min">From:</label> <input type="number" id="den-zero-min" value="1" min="0">
+                    <label for="den-zero-max">To:</label> <input type="number" id="den-zero-max" value="9" min="0">
+                </fieldset>
+                <fieldset>
+                    <legend>Answer Range</legend>
+                    <label for="ans-zero-min">From:</label> <input type="number" id="ans-zero-min" value="1" min="0">
+                    <label for="ans-zero-max">To:</label> <input type="number" id="ans-zero-max" value="9" min="0">
+                </fieldset>
+            </div>
+
+            <div id="mixed-decimal-inputs" class="hidden">
+                 <fieldset>
+                    <legend>Numerator Range</legend>
+                    <label for="num-mixed-min">From:</label> <input type="number" id="num-mixed-min" value="1" min="0">
+                    <label for="num-mixed-max">To:</label> <input type="number" id="num-mixed-max" value="20" min="0">
+                </fieldset>
+                <fieldset>
+                    <legend>Denominator Range</legend>
+                    <label for="den-mixed-min">From:</label> <input type="number" id="den-mixed-min" value="1" min="0">
+                    <label for="den-mixed-max">To:</label> <input type="number" id="den-mixed-max" value="9" min="0">
+                </fieldset>
+            </div>
+
+            <fieldset>
+                <legend>PDF Settings</legend>
+                <label for="pdf-font-size">Font Size:</label>
+                <input type="number" id="pdf-font-size" value="16" min="8">
+            </fieldset>
+        </div>
+
+        <div class="actions">
+            <button id="generate-btn">Generate Problems</button>
+            <button id="answer-toggle-btn">Show Answers</button>
+            <button id="pdf-btn">Generate PDF</button>
+        </div>
+
+        <div class="info-bar" id="info-bar"></div>
+
+        <div class="worksheet" id="worksheet">
+            <!-- Generated problems will appear here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

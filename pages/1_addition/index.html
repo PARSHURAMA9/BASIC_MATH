@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition Worksheet Generator</title>
+    <!-- Updated CSS reference -->
+    <link rel="stylesheet" href="style.css">
+    <!-- jsPDF Library for PDF Generation (requires internet) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Addition Worksheet Generator</h1>
+        
+        <div class="controls">
+            <fieldset>
+                <legend>First Number Range</legend>
+                <label for="min1">From:</label>
+                <input type="number" id="min1" value="0" min="0">
+                <label for="max1">To:</label>
+                <input type="number" id="max1" value="9" min="0">
+            </fieldset>
+
+            <fieldset>
+                <legend>Second Number Range</legend>
+                <label for="min2">From:</label>
+                <input type="number" id="min2" value="0" min="0">
+                <label for="max2">To:</label>
+                <input type="number" id="max2" value="9" min="0">
+            </fieldset>
+
+            <fieldset>
+                <legend>Randomization Power</legend>
+                <label><input type="radio" name="randomization" value="1" checked> Level 1 (Fully Sequential)</label>
+                <label><input type="radio" name="randomization" value="2"> Level 2 (Random First Number)</label>
+                <label><input type="radio" name="randomization" value="3"> Level 3 (Fully Random)</label>
+            </fieldset>
+            
+            <fieldset>
+                <legend>PDF Settings</legend>
+                <label for="pdf-font-size">PDF Font Size:</label>
+                <input type="number" id="pdf-font-size" value="14" min="8">
+            </fieldset>
+        </div>
+
+        <div class="actions">
+            <button id="generate-btn">Generate Sums</button>
+            <button id="pdf-btn">Generate PDF</button>
+            <button id="new-page-btn">New Page</button>
+        </div>
+
+        <div class="info-bar" id="info-bar"></div>
+
+        <div class="worksheet" id="worksheet">
+            <!-- Generated sums will appear here -->
+        </div>
+    </div>
+
+    <!-- Updated JavaScript reference -->
+    <script src="script.js"></script>
+</body>
+</html>
